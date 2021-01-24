@@ -25,21 +25,30 @@
           <div class="mui--text-black-54 mui--text-body2">PINNED POST</div>
           <div class="mui-divider"></div>
           <br>
-          <div class="mui--text-headline">MUI Acquires New Features</div>
-          <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 days ago</div>
-          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
-          <br>
+          <form class="mui-form" id="form">
+        
+            <div class="mui-textfield mui-textfield--float-label">
+              <textarea  id="post-input"
+              required maxlength="256"></textarea>
+              <label for="post-input">What`s new?</label>
+            </div>
+            <button type="submit" class="mui-btn mui-btn--raised btn-submit" >
+                Submit
+            </button>
+
+          </form>
           <br>
           <div class="mui--text-black-54 mui--text-body2">RECENT POSTS</div>
           <div class="mui-divider"></div>
           <br>
+          <div id='list'>
+
+          </div>
           <div class="mui--text-headline">MUI Acquires New Features</div>
           <div class="mui--text-black-54">By <a href="#">Team MUI</a> 1 week ago</div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
           <br>
-          <div class="mui--text-headline">MUI Acquires New Features</div>
-          <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 weeks ago</div>
-          <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
+          
         </div>
       </div>
     </div>
