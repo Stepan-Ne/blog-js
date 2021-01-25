@@ -54,3 +54,8 @@
  .btn-submit {
    background-color: #9aaa09;
  }
+ .floating-btn {
+   position: fixed;
+   bottom: 50px;
+   right: 50px;
+ }
