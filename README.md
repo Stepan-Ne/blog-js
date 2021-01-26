@@ -53,3 +53,5 @@ with postText and date
 15.4 authWithEmailPassword (return fetch)
 15.5 FIREBASE - auth: take endpoint for auth
 15.6 API_KEY: Project Overview - add to web-app
+
+16. Deploy on hosting
