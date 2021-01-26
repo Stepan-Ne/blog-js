@@ -48,3 +48,8 @@ with postText and date
 14. render posts from localStorage
 15. AUTHORISATION
 15.1 add btn and listener for createModalAuth func.
+15.2 createModalAuth: createModalAuth('Sign in', getAuthForm())
+15.3 submit AuthForm
+15.4 authWithEmailPassword (return fetch)
+15.5 FIREBASE - auth: take endpoint for auth
+15.6 API_KEY: Project Overview - add to web-app

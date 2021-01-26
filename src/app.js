@@ -1,6 +1,7 @@
 import './styles.css';
-import { isValid } from './utils';
+import { isValid, createModalAuth } from './utils';
 import { Post } from './sendPost';
+import { getAuthForm, authWithEmailPassword } from './auth'
 
 // get elements
 const form = document.getElementById('form');
@@ -8,7 +9,7 @@ const textarea = form.querySelector('#post-input');
 const btn = form.querySelector('#submit');
 const authBtn = document.getElementById('auth-btn');
 // listeners
-window.addEventListener('load', Post.renderListOfPosts);
+window.addEventListener('load', Post.fetch);
 textarea.addEventListener('input', () => {
   btn.disabled = !isValid(textarea.value);
 });
@@ -33,6 +34,27 @@ function submitFormHandler(event) {
     });
   }
 }
-function openAuthModal() {
-    
+export function openAuthModal() {
+    // create form
+    createModalAuth('Sign in', getAuthForm())
+    // submit form
+    document
+    .getElementById('auth-form')
+    .addEventListener('submit', authFormHandler, {once: true})
+}
+
+
+// Authorisation
+function authFormHandler(event) {
+event.preventDefault()
+// get email & password
+const email = event.target.querySelector('#email').value
+const password = event.target.querySelector('#password').value
+
+authWithEmailPassword(email, password)
+// get list of posts
+.then(token => {
+    localStorage.setItem('token', JSON.stringify(token));
+})
+
 }
