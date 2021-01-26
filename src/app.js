@@ -38,9 +38,9 @@ export function openAuthModal() {
     // create form
     createModalAuth('Sign in', getAuthForm())
     // submit form
-    document
-    .getElementById('auth-form')
-    .addEventListener('submit', authFormHandler, {once: true})
+    
+    const formAuth = document.getElementById('auth-form')
+    formAuth.addEventListener('submit', authFormHandler, {once: true})
 }
 
 
@@ -55,6 +55,9 @@ authWithEmailPassword(email, password)
 // get list of posts
 .then(token => {
     localStorage.setItem('token', JSON.stringify(token));
+
+    const formAuth = document.getElementById('mui-overlay')
+    formAuth.remove()
 })
 
 }

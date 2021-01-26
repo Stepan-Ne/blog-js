@@ -3,17 +3,12 @@ import {openAuthModal} from './app'
 export class Post {
 
   static sendPost(post) {
+
     const token = getTokenFromLocaleStorage()
-
-    //console.log('TOKEN', token)
-
     if (!token.length) {
         openAuthModal()
         return new Promise(resolve => resolve());
     }
-
-    //const tokenString = token.join('')
-    
 
     return fetch(`https://sn-blog-js-default-rtdb.europe-west1.firebasedatabase.app/posts.json?auth=${token}`, {
       method: 'POST',
@@ -30,6 +25,7 @@ export class Post {
       .then(addToLocaleStorage)
       .then(Post.renderListOfPosts);
   }
+
   static renderListOfPosts() {
       
     let posts = getPostsFromLocaleStorage();
@@ -52,27 +48,27 @@ export class Post {
     const list = document.getElementById('list');
     list.innerHTML = html;
   }
+
   static fetch() {
+
     return fetch(
       `https://sn-blog-js-default-rtdb.europe-west1.firebasedatabase.app/posts.json`
     )
       .then((res) => res.json())
       .then((data) => {
-          //console.log('DATA', data) - {}
-        if (data.error) {
-          return `<p class='error'>${data.error}</p>`;
+        if (!data) {
+          return 
         }
+        
         const keys = Object.keys(data);
         const posts = keys.map((k) => data[k]);
        
         let p = localStorage.getItem('posts') || '[]'
-        console.log(p)
         let pp = JSON.parse(p)
         pp = [...posts]
         localStorage.setItem('posts', JSON.stringify(pp));
         
       })
-      //.then(addToLocaleStorage)
       .then(Post.renderListOfPosts);
   }
 }
@@ -95,7 +91,7 @@ function getPostsFromLocaleStorage() {
   }
 function toCard(post) {
   return `
-    <div class="mui-container-fluid">
+    <div>
         <div>
         <b>
         ${new Date(post.date).toLocaleDateString()}
@@ -106,5 +102,5 @@ function toCard(post) {
         ${post.text}
         </div>
     </div>
-    `;
+    `
 }
